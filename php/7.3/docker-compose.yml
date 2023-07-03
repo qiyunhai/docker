@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+  php7.3:
+    image: php7.3:latest
+    container_name: php7.3
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    hostname: php7.3
+    restart: always
+    volumes:
+      - /www:/var/www/html
+
+networks:
+  default:
+    external:
+      name: php_network

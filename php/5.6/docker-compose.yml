@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+  php5.6:
+    image: php5.6:latest
+    container_name: php5.6
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    hostname: php5.6
+    restart: always
+    volumes:
+      - /www:/var/www/html
+
+networks:
+  default:
+    external:
+      name: php_network

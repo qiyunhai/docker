@@ -1,0 +1,57 @@
+version: "3.8"
+
+services:
+  nginx1.18.0:
+    image: nginx1.18.0:latest
+    container_name: lnmp_nginx1.18.0
+    build:
+      context: ../
+      dockerfile: nginx/Dockerfile
+    hostname: lnmp_nginx1.18.0
+    restart: always
+    volumes:
+      - /home/nginx/log:/var/log/nginx
+      - /home/nginx/conf.d:/etc/nginx/conf.d
+      - /home/nginx/conf/nginx.conf:/etc/nginx/nginx.conf
+      - /www:/usr/share/nginx/html
+    ports:
+      - "80:80"
+    links:
+      - php8.2.5:php8.2.5
+    depends_on:
+      - php8.2.5
+
+  php8.2.5:
+    image: php8.2.5:latest
+    container_name: lnmp_php8.2.5
+    build:
+      context: ../
+      dockerfile: php/8.2.5/Dockerfile
+    hostname: lnmp_php8.2.5
+    restart: always
+    volumes:
+      - /www:/var/www/html
+    ports:
+      - "9501:9501"
+
+  mysql8.0.33:
+    image: mysql8.0.33:latest
+    container_name: lnmp_mysql8.0.33
+    build:
+      context: ../
+      dockerfile: mysql/8.0.33/Dockerfile
+    hostname: lnmp_mysql8.0.33
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_ALLOW_EMPTY_PASSWORD: yes
+      MYSQL_RANDOM_ROOT_PASSWORD: no
+    volumes:
+      - /home/mysql:/var/lib/mysql
+    ports:
+      - "3306:3306"
+
+networks:
+  default:
+    external:
+      name: lnmp_network

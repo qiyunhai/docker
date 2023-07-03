@@ -1,0 +1,24 @@
+version: "3.8"
+
+services:
+  mysql5.7:
+    image: mysql5.7:latest
+    container_name: mysql5.7
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    hostname: mysql5.7
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_ALLOW_EMPTY_PASSWORD: 123456
+      MYSQL_RANDOM_ROOT_PASSWORD: 123456
+    volumes:
+      - /home/mysql:/var/lib/mysql
+    ports:
+      - "3306:3306"
+
+networks:
+  default:
+    external:
+      name: mysql_network

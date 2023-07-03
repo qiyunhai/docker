@@ -1,0 +1,21 @@
+version: "3.8"
+
+services:
+  redis7.0.11:
+    image: redis7.0.11:latest
+    container_name: redis7.0.11
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    hostname: redis7.0.11
+    restart: always
+    volumes:
+      - /home/redis/data:/data
+      - /home/redis/conf:/home/redis/conf
+    ports:
+      - "6379:6379"
+
+networks:
+  default:
+    external:
+      name: redis_network

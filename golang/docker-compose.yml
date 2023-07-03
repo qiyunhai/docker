@@ -1,0 +1,20 @@
+version: "3.8"
+
+services:
+  golang1.20:
+    image: golang1.20:latest
+    container_name: golang1.20
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    hostname: golang1.20
+    restart: always
+    volumes:
+      - /go:/go
+    ports:
+      - "8080:8080"
+
+networks:
+  default:
+    external:
+      name: golang_network
