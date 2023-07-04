@@ -6,7 +6,7 @@ services:
     container_name: lnmp_nginx1.18.0
     build:
       context: ../
-      dockerfile: nginx/Dockerfile
+      dockerfile: ../NGINX/Dockerfile
     hostname: lnmp_nginx1.18.0
     restart: always
     volumes:
@@ -26,7 +26,7 @@ services:
     container_name: lnmp_php8.2.5
     build:
       context: ../
-      dockerfile: php/8.2.5/Dockerfile
+      dockerfile: ../PHP/8.2.5/Dockerfile
     hostname: lnmp_php8.2.5
     restart: always
     volumes:
@@ -39,7 +39,7 @@ services:
     container_name: lnmp_mysql8.0.33
     build:
       context: ../
-      dockerfile: mysql/8.0.33/Dockerfile
+      dockerfile: ../MySQL/8.0.33/Dockerfile
     hostname: lnmp_mysql8.0.33
     restart: always
     environment:
