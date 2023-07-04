@@ -14,9 +14,11 @@
 
 > MySQL
 
-> Reids
+> Redis
 
 > MongoDB
+
+> RabbitMQ
 
 ### 其他
 当前仓库（随着本人的使用）不断更新中。。。
