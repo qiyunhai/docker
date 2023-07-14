@@ -6,11 +6,11 @@
 
 > LNMP 环境
 
-> Golang
+> GoLang
 
 > NGINX
 
-> PHP (php-fpm)
+> PHP (PHP-FPM)
 
 > MySQL
 
@@ -19,6 +19,8 @@
 > MongoDB
 
 > RabbitMQ
+
+> ElasticSearch
 
 ### 其他
 当前仓库（随着本人的使用）不断更新中。。。

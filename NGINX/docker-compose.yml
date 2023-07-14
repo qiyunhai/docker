@@ -10,9 +10,9 @@ services:
     hostname: nginx1.18.0
     restart: always
     volumes:
-      - /home/nginx/log:/var/log/nginx
-      - /home/nginx/conf.d:/etc/nginx/conf.d
-      - /home/nginx/conf/nginx.conf:/etc/nginx/nginx.conf
+      - ./volume/log:/var/log/nginx
+      - ./volume/conf.d:/etc/nginx/conf.d
+      - ./volume/conf/nginx.conf:/etc/nginx/nginx.conf
       - /www:/usr/share/nginx/html
     ports:
       - "80:80"

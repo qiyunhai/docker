@@ -11,8 +11,8 @@ services:
     restart: always
     volumes:
       - ./volume/config:/usr/share/elasticsearch/config
-      - ./volume/logs:/usr/share/elasticsearch/logs
-      - ./volume/data:/usr/share/elasticsearch/data
+      - /home/es/logs:/usr/share/elasticsearch/logs
+      - /home/es/data:/usr/share/elasticsearch/data
     ports:
       - "9200:9200"
       - "9300:9300"
